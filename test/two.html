@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Test Import Webcomponents</title>
+		<link rel="preload" href="defineElement.js" as="script">
+		<link rel="preload" href="my-wc.js"       data-es5="my-wcES5.js"       data-lib="defineES5Element.js" as="script">
+		<link rel="preload" href="my-other-wc.js" data-es5="my-other-wcES5.js" data-lib="defineES5Element.js" as="script">
+		<script src="../import-webcomponents.js" async></script>
+	</head>
+	<body>
+		<my-wc></my-wc><br/>
+		<my-other-wc></my-other-wc>
+	</body>
+</html>

@@ -1,0 +1,67 @@
+{
+	"name": "import-webcomponents",
+	"version": "0.0.1",
+	"license": "MIT",
+	"author": {
+		"name": "Thorsten Roggendorf",
+		"email": "junk@schrotie.de",
+		"url": "https://roggendorf.pro"
+	},
+	"description": "Small helper script to help loading web components and their dependencies",
+	"homepage": "https://github.com/schrotie/import-webcomponents#readme",
+	"bugs": {
+		"url": "https://github.com/shrotie/import-webcomponents/issues",
+		"email": "junk@shrotie.de"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/schrotie/import-webcomponents"
+	},
+	"files": [
+		"import-webcomponents.js",
+		"import-webcomponents.min.js"
+	],
+	"directories": {
+		"test": "test"
+	},
+	"keywords": [
+		"browser",
+		"javascript",
+		"web-components"
+	],
+	"browser": "index.html",
+	"devDependencies": {
+		"//": {
+			"@babel/cli": "^7.2.0",
+			"@babel/core": "^7.2.0",
+			"@babel/preset-env": "^7.2.0",
+			"gulp-babel": "latest",
+			"gulp-replace": "latest"
+		},
+		"del": "latest",
+		"eslint": "latest",
+		"eslint-config-google": "latest",
+		"eslint-plugin-html": "latest",
+		"gulp": "^4.0.0",
+		"gulp-better-rollup": "latest",
+		"gulp-cli": "latest",
+		"gulp-rename": "latest",
+		"gulp-uglify-es": "latest",
+		"rollup": "^0.67.4",
+		"serve": "latest",
+		"uglify-es": "latest"
+	},
+	"dependencies": {
+		"@webcomponents/webcomponentsjs": "latest"
+	},
+	"scripts": {
+		"build": "./node_modules/.bin/gulp",
+		"doc": "./node_modules/.bin/jsdoc  -c jsdoc.conf.json",
+		"lint": "eslint . --ext mjs,js,html --ignore-path .gitignore",
+		"start": "${PWD}/node_modules/.bin/serve &",
+		"stop": "PID=`npm run --silent pid`; if [ \"$PID\" != \"\" ]; then\nkill $PID\nfi",
+		"test": "PID=`npm run --silent pid`; if [ \"$PID\" != \"\" ]; then\nnpm run run-test\n else\nnode server.js  --port $npm_package_config_port --test true\nfi",
+		"pid": "ps aux | grep \"${PWD}/node_modules/.bin/serve\" | grep -v grep | awk '{print $2}'",
+		"run-test": "./node_modules/.bin/mocha-headless-chrome -f http://localhost:$npm_package_config_port/dev/test/"
+	}
+}
